@@ -1,0 +1,46 @@
+{
+    "name": "extract-module-exports",
+    "version": "0.0.0",
+    "description": "Extracts the export object of a nodeJS module",
+    "engines": {
+        "node": "8.* || 9.* || >= 10.*"
+    },
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jonyeezs/extract-module-exports.git"
+    },
+    "keywords": [
+        "esm",
+        "exports",
+        "es2015",
+        "parser",
+        "extract",
+        "ecmascript",
+        "escmascript2015",
+        "modules",
+        "export",
+        "tool",
+        "utility"
+    ],
+    "author": "Jonathan Yee",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/jonyeezs/extract-module-exports/issues"
+    },
+    "homepage": "https://github.com/jonyeezs/extract-module-exports#readme",
+    "devDependencies": {
+        "@types/jest": "^23.3.13",
+        "@types/node": "^10.12.21",
+        "jest": ">=22.0.0 <24.0.0",
+        "ts-jest": "^23.10.5",
+        "tslint": "^5.12.1",
+        "typescript": "^3.3.1"
+    },
+    "dependencies": {}
+}
