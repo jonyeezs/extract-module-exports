@@ -1,6 +1,6 @@
 {
     "name": "extract-module-exports",
-    "version": "0.0.0",
+    "version": "0.0.1-0",
     "description": "Extracts the export object of a nodeJS module",
     "engines": {
         "node": "8.* || 9.* || >= 10.*"
