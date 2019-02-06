@@ -1,0 +1,52 @@
+{
+  "JSON": {
+    "beautifiers": [
+      "Prettier"
+    ],
+    "indent_size": "4",
+    "indent_style": "space",
+    "quotes": "double",
+    "align_assignments": true,
+    "break_chained_methods": true,
+    "end_with_newline": true,
+    "object_curly_spacing": true,
+    "newline_between_rules": true
+  },
+  "TypeScript": {
+    "beautifiers": [
+      "Prettier",
+      "TSLint"
+    ],
+    "indent_size": "4",
+    "indent_style": "space",
+    "quotes": "double",
+    "align_assignments": true,
+    "break_chained_methods": true,
+    "arrow_parens": "as-needed",
+    "object_curly_spacing": true,
+    "space_after_anon_function": true
+  },
+  "JavaScript": {
+    "beautifiers": [
+      "Prettier",
+      "ESLint"
+    ],
+    "indent_size": "4",
+    "indent_style": "space",
+    "quotes": "double",
+    "align_assignments": true,
+    "break_chained_methods": true,
+    "arrow_parens": "as-needed",
+    "end_with_newline": true,
+    "object_curly_spacing": true,
+    "space_after_anon_function": true,
+    "indent_chained_methods": true
+  },
+  "Markdown": {
+    "beautifiers": [
+      "Prettier"
+    ],
+    "indent_size": "2",
+    "indent_style": "tab",
+    "quotes": "double"
+  }
