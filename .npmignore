@@ -1,4 +1,5 @@
 lib/
+fixtures/
 tsconfig.json
 tslint.json
 jest.config.js
