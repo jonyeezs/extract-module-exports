@@ -5,7 +5,7 @@
 
 Extracts the export objects of a [NodeJS module][module].
 
-This will provide you a list of the properties' name available when you [import a module][require].
+This will provide you a list of the properties available when you [import a module][require].
 
 > COMING SOON
 
@@ -20,8 +20,8 @@ This will provide you a list of the properties' name available when you [import 
 // some-file.js
 
 const features = {
-    feature1: function () {},
-    feature2: function () {}
+  feature1: function() {},
+  feature2: {}
 };
 
 module.exports = features;
@@ -30,9 +30,10 @@ module.exports = features;
 ```js
 const extractExports = require("extract-module-exports");
 
-extractExports("dir-to-file/some-file.js")
-.then(results => {
-    console.log(results); // ["feature1", "feature2"]
+extractExports("dir-to-file/some-file.js").then(results => {
+  console.log(results);
+  // [{ name: "feature1", type: "function", default: false },
+  // 	{ name: "feature2", type: "object", default: false }]
 });
 ```
 
