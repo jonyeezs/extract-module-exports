@@ -2,6 +2,11 @@
     "defaultSeverity": "error",
     "extends": ["tslint:latest", "tslint-config-prettier"],
     "jsRules": {},
-    "rules": {},
+    "rules": {
+        "skipLibCheck": true,
+        "no-submodule-imports": false,
+        "no-any": false,
+        "ordered-imports": true
+    },
     "rulesDirectory": []
 }
