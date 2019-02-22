@@ -1,3 +1,3 @@
-exports = module.exports = {};
+exports = module.exports = { a: function() {} };
 
 exports.method = function() {};

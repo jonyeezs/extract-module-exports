@@ -1,0 +1,58 @@
+version: 2
+jobs:
+  prepare:
+    working_directory: ~/workspace
+    docker:
+    - image: circleci/node:latest
+    steps:
+    - checkout
+    - restore_cache:
+        name: Restore node modules cache
+        key: node_modules-{{ checksum "package-lock.json" }}
+    - run:
+        name: Install dependencies
+        command: |
+          if [ ! -d node_modules ]; then
+            sudo npm install -g npm
+            npm ci
+          fi
+    - save_cache:
+        name: Save node modules cache
+        key: node_modules-{{ checksum "package-lock.json" }}
+        paths:
+          - node_modules
+  test:
+    working_directory: ~/workspace
+    docker:
+    - image: circleci/node:9.11.1
+    steps:
+    - checkout
+    - restore_cache:
+        name: Restore node modules cache
+        key: node_modules-{{ checksum "package-lock.json" }}
+    - run:
+        name: test
+        command: npm test
+  build:
+    working_directory: ~/workspace
+    docker:
+    - image: circleci/node:9.11.1
+    steps:
+    - checkout
+    - restore_cache:
+        name: Restore node modules cache
+        key: node_modules-{{ checksum "package-lock.json" }}
+    - run:
+        name: build
+        command: npm run build
+workflows:
+  version: 2
+  pull-request:
+    jobs:
+    - prepare
+    - test:
+        requires:
+        - prepare
+    - build:
+        requires:
+        - test
