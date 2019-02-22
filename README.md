@@ -2,16 +2,16 @@
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![formatter: unibeautify](https://img.shields.io/badge/formatter-unibeautify-388ede.svg?style=flat-square)](https://unibeautify.com)
-
+[![CircleCI](https://circleci.com/gh/jonyeezs/extract-module-exports/tree/master.svg?style=svg)](https://circleci.com/gh/jonyeezs/extract-module-exports/tree/master)
 Extracts the export objects of a [NodeJS module][module].
 
 This will provide you a list of the properties available when you [import a module][require].
 
-> COMING SOON
-
 ## Installation
 
-> COMING SOON!
+```sh
+npm i extract-module-exports
+```
 
 ## Usage
 
