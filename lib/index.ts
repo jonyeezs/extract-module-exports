@@ -25,9 +25,12 @@ export default function(path: string) {
                     ruleSet = null;
                 }
                 if (!ruleSet) {
-                    cachedExpressions.push(node as VariableDeclaration);
+                    cachedExpressions.push(node as any);
                     return acc;
                 } else {
+                    if (ruleSet.rules.enablesExportExtension) {
+                        hasEnabledExportExtension = true;
+                    }
                     if (
                         !hasEnabledExportExtension &&
                         ruleSet.rules.isExportExtension
@@ -37,9 +40,6 @@ export default function(path: string) {
 
                     if (ruleSet.rules.override) {
                         return ruleSet.extract(node, cachedExpressions);
-                    }
-                    if (ruleSet.rules.enablesExportExtension) {
-                        hasEnabledExportExtension = true;
                     }
                 }
                 return [...acc, ...ruleSet.extract(node, cachedExpressions)];

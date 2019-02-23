@@ -1,5 +1,6 @@
 import {
     AssignmentExpression,
+    ExportDefaultDeclaration,
     ExpressionStatement,
     ModuleDeclaration,
     Statement,
@@ -25,8 +26,8 @@ export interface IExportableRule {
 }
 
 export const ExportableRuleSet: IExportableRule[] = [
+    // module.exports =
     {
-        // module.exports =
         condition: (node: any) =>
             node.type === "ExpressionStatement" &&
             (node.expression.type === "AssignmentExpression" &&
@@ -47,8 +48,8 @@ export const ExportableRuleSet: IExportableRule[] = [
             override: true
         }
     },
+    // exports.* =
     {
-        // exports.* =
         condition: (node: any) =>
             node.type === "ExpressionStatement" &&
             (node.expression.type === "AssignmentExpression" &&
@@ -66,8 +67,8 @@ export const ExportableRuleSet: IExportableRule[] = [
             override: false
         }
     },
+    // module.exports.* =
     {
-        // module.exports.* =
         condition: (node: any) =>
             node.type === "ExpressionStatement" &&
             (node.expression.type === "AssignmentExpression" &&
@@ -85,8 +86,8 @@ export const ExportableRuleSet: IExportableRule[] = [
             override: false
         }
     },
+    // exports = module.exports =
     {
-        // exports = module.exports =
         condition: (node: any) =>
             node.type === "ExpressionStatement" &&
             (node.expression.type === "AssignmentExpression" &&
@@ -101,6 +102,41 @@ export const ExportableRuleSet: IExportableRule[] = [
         rules: {
             enablesExportExtension: true,
             isExportExtension: false,
+            override: false
+        }
+    },
+    // export type
+    {
+        condition: node =>
+            node.type === "ExportNamedDeclaration" &&
+            node.specifiers.length === 0,
+        extract: (node: any, nonExports) =>
+            extract(node.declaration, nonExports),
+        rules: {
+            enablesExportExtension: true,
+            isExportExtension: true,
+            override: false
+        }
+    },
+    // export {}
+    {
+        condition: node =>
+            node.type === "ExportNamedDeclaration" &&
+            node.specifiers.some(s => s.type === "ExportSpecifier"),
+        extract: (node: any, nonExports) => extract(node, nonExports),
+        rules: {
+            enablesExportExtension: true,
+            isExportExtension: true,
+            override: false
+        }
+    },
+    // export default
+    {
+        condition: node => node.type === "ExportDefaultDeclaration",
+        extract: (node, nonExports) => extract(node, nonExports),
+        rules: {
+            enablesExportExtension: true,
+            isExportExtension: true,
             override: false
         }
     }
