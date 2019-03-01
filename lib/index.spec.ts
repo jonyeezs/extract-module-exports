@@ -22,8 +22,7 @@ describe("default module", () => {
             expect(result).toHaveLength(1);
             expect(result).toContainEqual({
                 default: false,
-                name: "",
-                type: "literal"
+                name: ""
             });
         });
     });
@@ -43,15 +42,9 @@ describe("commonjs exports", () => {
         return subject(file).then((result: any) => {
             expect(result).toHaveLength(assertObjKeys.length);
             assertObjKeys.forEach(key => {
-                // unfortunately cherow doesn't provide the type for primitives
-                const type = typeof assertObj[key];
-                const assertType =
-                    type !== "function" && type !== "object" ? "literal" : type;
-
                 expect(result).toContainEqual(
                     expect.objectContaining({
-                        name: key,
-                        type: assertType
+                        name: key
                     })
                 );
             });
@@ -85,14 +78,9 @@ describe("es6 exports", () => {
             const result = await subject(file);
             expect(result).toHaveLength(assertObjKeys.length);
             assertObjKeys.forEach(key => {
-                // unfortunately cherow doesn't provide the type for primitives
-                const type = typeof assertObj[key];
-                const assertType =
-                    type !== "function" && type !== "object" ? "literal" : type;
                 expect(result).toContainEqual(
                     expect.objectContaining({
-                        name: key,
-                        type: assertType
+                        name: key
                     })
                 );
             });
