@@ -9,6 +9,8 @@
     "types": "dist/index.d.ts",
     "scripts": {
         "build": "tsc",
+        "cleanup": "rimraf dist & rimraf extract-module-exports-*.tgz",
+        "prepack": "npm run cleanup && npm run build",
         "test": "jest"
     },
     "repository": {
@@ -47,7 +49,8 @@
         "unibeautify": "^0.17.0"
     },
     "dependencies": {
-        "cherow": "^1.6.9"
+        "cherow": "^1.6.9",
+        "rimraf": "^2.6.3"
     },
     "jest": {
         "testEnvironment": "node"
