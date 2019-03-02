@@ -33,8 +33,8 @@ const extractExports = require("extract-module-exports");
 
 extractExports("dir-to-file/some-file.js").then(results => {
   console.log(results);
-  // [{ name: "feature1", type: "function", default: false },
-  // 	{ name: "feature2", type: "object", default: false }]
+  // [{ name: "feature1", default: false },
+  // 	{ name: "feature2", default: false }]
 });
 ```
 
