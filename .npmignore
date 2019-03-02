@@ -6,3 +6,4 @@ jest.config.js
 .vscode
 .editorconfig
 .unibeautifyrc
+.circleci/
