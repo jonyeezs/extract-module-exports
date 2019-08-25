@@ -6,7 +6,7 @@ This will provide you a list of the properties available when you [import a modu
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![formatter: unibeautify](https://img.shields.io/badge/formatter-unibeautify-388ede.svg?style=flat-square)](https://unibeautify.com)
-[![CircleCI](https://circleci.com/gh/jonyeezs/extract-module-exports/tree/master.svg?style=shield)](https://circleci.com/gh/jonyeezs/extract-module-exports/tree/master)
+[![CircleCI](https://circleci.com/gh/jonyeezs/extract-module-exports/tree/master.svg?style=shield)](https://circleci.com/gh/jonyeezs/extract-module-exports/tree/master) [![Greenkeeper badge](https://badges.greenkeeper.io/jonyeezs/extract-module-exports.svg)](https://greenkeeper.io/)
 
 ## Installation
 
